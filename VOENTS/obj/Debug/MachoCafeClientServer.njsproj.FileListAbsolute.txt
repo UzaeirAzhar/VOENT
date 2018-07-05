@@ -1,0 +1,3 @@
+D:\Projects\EventMangement\MachoCafeClientServer\obj\Debug\MachoCafeClientServer.njsprojResolveAssemblyReference.cache
+D:\Projects\EventMangement\MachoCafeClientServer\obj\Debug\MachoCafeClientServer.njsproj.CoreCompileInputs.cache
+D:\Projects\EventMangement\MachoCafeClientServer\bin\Microsoft.NodejsTools.WebRole.dll

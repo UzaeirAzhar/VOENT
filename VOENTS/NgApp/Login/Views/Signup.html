@@ -1,0 +1,87 @@
+﻿<div class="row" id="dashboardContents" ng-init="loadManageUser();">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="row marginBtm_20">
+            <h3 class="col-md-6 margin_0">Manage Users</h3>
+        </div>
+
+        <div class="marginBtm_20 bg_cream">
+            <form class="form1" name="mainForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtName" class="control-label col-md-5">Name</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="txtName" ng-model="userForm.name" name="name" required>
+                                <p class="help-block" ng-show="mainForm.name.$invalid && isFormSubmit">Name is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtPassword" class="control-label col-md-5 text-right">Password</label>
+                            <div class="col-md-7">
+                                <input type="password" class="form-control" id="txtPassword" name="password" ng-model="userForm.password" required>
+                                <p class="help-block" ng-show="mainForm.password.$invalid && isFormSubmit">Password is required</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtEmail" class="control-label col-md-5">Email</label>
+                            <div class="col-md-7">
+                                <input type="email" class="form-control" id="txtEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email" ng-model="userForm.email" required>
+                                <p class="help-block" ng-show="mainForm.email.$error.pattern && isFormSubmit">Email is invalid</p>
+                                <p class="help-block" ng-show="mainForm.email.$error.required && isFormSubmit">Email is required</p>
+                                <p class="help-block" ng-show="showErrorMessage">{{messageEmail}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="dpUserGender" class="control-label col-md-5 text-right">Gender</label>
+                            <div class="col-md-7">
+                                <select id="dpUserGender" name="gender" class="form-control" ng-model="userForm.gender" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <p class="help-block" ng-show="mainForm.gender.$error.required && isFormSubmit">User Gender not selected</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtAddress" class="control-label col-md-5">Address</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="txtAddress" ng-model="userForm.address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtPhone" class="control-label col-md-5  text-right">Phone</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="txtPhone" ng-model="userForm.phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row text-right">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <button type="button" id="btnAddUser" class="btn btn-default blu_btn" ng-click="addNewUser(mainForm.$valid);">Save User</button>
+                        <button type="button" id="btnCancel" class="btn btn-default" ng-click="cancelSignUp();">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

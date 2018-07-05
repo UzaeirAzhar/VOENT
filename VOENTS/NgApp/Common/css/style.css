@@ -1,0 +1,117 @@
+.content-item {
+    border: 1px solid #70463a;
+    padding: 15px;
+    margin-top: 70px;
+    border-radius: 3px;
+    color: #70463a;
+}
+
+.heading {
+    background-color: #70463a;
+    margin-top: -15px;
+    color: white;
+    height: 30px;
+    font-size: 20px;
+}
+
+input {
+    border: 1px solid lightgrey !important;
+    border-radius: 2px;
+}
+
+.custom-btn {
+    background-color: transparent !important;
+    border: 2px solid #70463a !important;
+}
+
+.button3 {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    float: right;
+    clear: both;
+    margin-right: 40px;
+}
+
+.button2 {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    float: right;
+    clear: both;
+    margin-right: 20px;
+}
+
+.sign {
+    font-size: 25px;
+    font-family: sans-serif;
+    clear: both;
+    position: relative;
+    margin-left: 12px;
+}
+
+.srch {
+    float: right;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+.srchPurch {
+    float: right;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.suppData {
+    padding: 25px;
+}
+
+hr {
+    border-color: #70463a;
+    padding: 10px;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+
+#noti_Container {
+    position: relative; /* This is crucial for the absolutely positioned element */
+    width: 16px;
+    height: 16px;
+}
+
+.noti_bubble {
+    position: absolute;
+    top: -17px;
+    right: -12px;
+    padding: 3px 5px 2px 3px;
+    /* padding: 3px; */
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 30px;
+    /* box-shadow: 1px 1px 1px gray; */
+}
+
+
+.unread {
+    background-color:#F5F5F5;
+    font-weight:bold;
+}
+.read {
+    /*color:blue;*/
+}
+/*.panel-heading
+{
+	background-color: #EEE8DC !important;
+	border: 1px solid #70463a !important;
+}
+.panel-body
+{
+	background-color: #FAF8F5 !important;
+}
+#FAQ ul
+{
+	margin-bottom: 0px !important;
+	padding-left: 30px !important;
+}*/

@@ -1,0 +1,248 @@
+<div class="row" id="dashboardContents" ng-init="loadEvents();">
+    <div class="col-md-12">
+        <div class="row marginBtm_20">
+            <h3 class="col-md-6 margin_0">Manage Events</h3>
+            <div class="col-md-6 text-right" ng-hide="newEvent">
+                <button type="button" id="btnAddNewUser" class="btn btn-default blu_btn" ng-click="toggleEventForm();">New Event</button>
+            </div>
+        </div>
+
+        <div class="marginBtm_20 bg_cream" ng-show="newEvent">
+            <form class="form1" name="mainForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="ddType" class="control-label col-md-5">Event Type</label>
+                            <div class="col-md-7">
+                                <select class="form-control" name="ddEventType" ng-model="eventForm.event_type" ng-options="type.id as type.Name for type in types" ng-change="changeSubTypes();" required>
+                                    <option value=""> -- Select --</option>
+                                </select>
+                                <p class="help-block" ng-show="mainForm.ddEventType.$invalid && isFormSubmit">Event Type is required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="ddSubType" class="control-label col-md-5 text-right">Event Sub Type</label>
+                            <div class="col-md-7">
+                                <select class="form-control" ng-model="eventForm.sub_type" name="subEventType" ng-options="subType.id as subType.Name for subType in selectedSubTypes" required>
+                                    <option value=""> -- Select --</option>
+                                </select>
+                                <p class="help-block" ng-show="mainForm.subEventType.$invalid && isFormSubmit">Sub Event type is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtEventName" class="control-label col-md-5">Event Name</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="txtEventName" ng-model="eventForm.name" name="eventName" required>
+                                <p class="help-block" ng-show="mainForm.eventName.$invalid && isFormSubmit">Event Name is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtStartDate" class="control-label col-md-5 text-right">Start Date and Time</label>
+                            <div class="col-md-7">
+                                <input type="datetime-local"
+                                       class="form-control"
+                                       id="txtStartDate"
+                                       name="startDate"
+                                       placeholder="yyyy-MM-ddTHH:mm:ss"
+                                       ng-model="start_date.value"
+                                       required>
+                                <p class="help-block" ng-show="mainForm.startDate.$invalid && isFormSubmit">Start Date is required</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtEmail" class="control-label col-md-5">End Date and Time</label>
+                            <div class="col-md-7">
+                                <input type="datetime-local"
+                                       class="form-control"
+                                       id="txtEndDate"
+                                       name="endDate"
+                                       placeholder="yyyy-MM-ddTHH:mm:ss"
+                                       ng-model="eventForm.end_date"
+                                       required>
+                                <p class="help-block" ng-show="mainForm.endDate.$invalid && isFormSubmit">End Date is required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="chkDiscussion" class="control-label col-md-5 text-right">Multi Check</label>
+                            <div class="col-md-7">
+                                <input type="checkbox" class="form-control" id="chkDiscussion" name="chkBoxDiscussion" ng-model="eventForm.is_multi">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row marginBtm_20">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+                            <label for="txtEndTime" class="control-label col-md-5">Discussion Check</label>
+                            <div class="col-md-7">
+                                <input type="checkbox" class="form-control" id="txtEndTime" name="chkDiscussion" ng-model="eventForm.is_discussion_page">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                    </div>
+                </div>
+
+                <label class="control-label col-md-5">User Permissions</label>
+                <div class="row col-md-offset-1">
+                    <table class="table table-bordered" style="width: 90%; text-align: center">
+                        <thead>
+                            <tr class="trBG">
+                                <th>User</th>
+                                <th>Roles</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- tr ng-repeat="user in users"-->
+                            <tr ng-repeat="permission in permissions" ng-show="permissions.length > 0">
+                                <td>
+                                    <select class="form-control" name="ddUserName" ng-options="user.id as user.name for user in users" ng-model="permission.user_id">
+                                        <option value=""> -- Select --</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="ddRoles" ng-options="role.id as role.name for role in roles" ng-model="permission.role_id">
+                                        <option value=""> -- Select --</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" ng-click="addNewPermission();">Add</a> /
+                                    <a href="javascript:void(0);" ng-click="deletePermission();">Delete</a>
+                                </td>
+                            </tr>
+                            <tr ng-show="permissions.length < 1">
+                                <td colspan="3" align="center">
+                                    <h2><a href="javascript:void(0);" ng-click="addNewPermission();">Add User Role</a></h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <label class="control-label col-md-5">Voting Options</label>
+                <div class="row col-md-offset-1">
+                    <table class="table table-bordered" style="width: 90%; text-align: center">
+                        <thead>
+                            <tr class="trBG">
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Place</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- tr ng-repeat="user in users"-->
+                            <tr ng-repeat="option in options">
+                                <td>
+                                    <input type="text" class="form-control" ng-model="option.name">
+                                </td>                                       
+                                <td>                                        
+                                    <input type="date" class="form-control" ng-model="option.date">
+                                </td>                                       
+                                <td>                                        
+                                    <input type="text" class="form-control" ng-model="option.time">
+                                </td>                                       
+                                <td>                                        
+                                    <input type="text" class="form-control" ng-model="option.place">
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" ng-click="addNewOption($index);">Add</a> /
+                                    <a href="javascript:void(0);" ng-click="deleteOption($index);">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row text-right">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <button type="button" id="btnAddUser" class="btn btn-default blu_btn" ng-click="addNewEvent(mainForm.$valid);">Save Event</button>
+                        <button type="button" id="btnCancel" class="btn btn-default" ng-click="toggleEventForm();">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-2">
+                <label class="control-label col-xs-3" for="txtTableNum" class="">Search</label>
+            </div>
+            <div class="col-xs-5">
+                <select ng-model="txtSearch.role_name" class="form-control col-xs-9" >
+                    <option value="">All</option>
+                    <option value="Organizer">Organizer</option>
+                    <option value="Participant_Discussion">Participant And Discussion</option>
+                </select>
+
+            </div>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr class="trBG">
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Sub Type</th>
+                    <th>Role</th>
+                    <th>Start Date/Time</th>
+                    <th>End Date/Time</th>
+                    <th>Multi</th>
+                    <th>Discussion</th>
+                    <th>View Graphs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- tr ng-repeat="user in users"-->
+                <tr ng-repeat="event in events | filter: txtSearch">
+                    <td><a href="/#/EventViewer/{{userId}}/{{event.id}}">{{event.name}}</a></td>
+                    <td>{{ event.event_type_name}}</td>
+                    <td>{{ event.sub_event_type_name}}</td>
+                    <td>{{ event.role_name}}</td>
+                    <td>{{ getDateAndTime(event.start_date)}}</td>
+                    <td>{{ getDateAndTime(event.end_date);}}</td>
+                    <td>
+                        <span ng-if="event.is_multi === 1">
+                            Yes
+                        </span>
+                        <span ng-if="event.is_multi === 0">
+                            No
+                        </span>
+                    </td>
+                    <td>
+
+                        <span ng-if="event.is_discussion_page === 1">
+                            Yes
+                        </span>
+                        <span ng-if="event.is_discussion_page === 0">
+                            No
+                        </span>
+                    </td>
+                    <td><a href="/#/EventVoteGraph/{{event.id}}">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,898 @@
+body {
+    font-family: senserif, arial, helvetica;
+    /*background: #F5F5F5;*/
+    background: #FFFCF5;
+}
+
+.receiptContainer {
+    border: 1px solid #bababa;
+}
+
+.receiptHeader {
+    background: #363636;
+    height: 118px;
+    color: white;
+    padding: 15px 10px;
+}
+
+    .receiptHeader div {
+        float: left;
+        padding-right: 6%;
+    }
+
+    .receiptHeader .servedBy {
+        float: right !important;
+    }
+
+    .receiptHeader div:last-child {
+        padding-right: 0;
+    }
+
+    .receiptHeader div:first-child span {
+        display: block;
+        line-height: 1.1;
+    }
+
+.servedBy span {
+    font-size: 40px;
+    color: #BF4601;
+    text-transform: uppercase;
+}
+
+.receiptCenter {
+    background-image: url(../../../images/receiptCenterBg.png);
+    height: 295px;
+    background-repeat: repeat-y;
+    background-size: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.receiptForm th {
+    border-right: 2px solid white;
+}
+
+.receiptForm th {
+    border-right: 1px solid white;
+}
+
+    .receiptForm th:nth-child(4) {
+        border-right: none;
+    }
+
+.receiptForm thead {
+    background: #BAB526;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.receiptForm td {
+    border-right: 1px solid #C1C1C1;
+    font-size: 15px;
+}
+
+#ViewByText {
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.receiptFooter {
+    min-height: 250px;
+    padding: 0 0 5px 0;
+}
+
+
+.printBtn{
+    background: url(../../../images/print.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 44px;
+    border: none;
+}
+
+
+    .printBtn:hover, .discountBtn:hover, .payNow {
+        cursor:pointer;
+    }
+
+.discountBtn{
+    background: url(../../../images/discount.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 44px;
+    border: none;
+}
+
+.leftText div{
+    text-align:right;
+    padding:2px;
+    /*padding:5px;*/
+    font-size:.9em;
+    font-weight:bold;
+     color: #851500;
+    /*font-size:1px;*/
+}
+
+.line {
+    float:right;
+    width:91%;
+    padding:0;
+    margin:0;
+    color:black;
+}
+
+.rightText div{
+    font-size:.9em;
+    text-align:right;
+    /*padding:5px;*/
+    text-align:left;
+    /*font-size:10px;*/
+    
+}
+.rightText p {
+    margin-left:20px;
+}
+
+.rightText {
+    margin:0;
+    padding:0;
+    background:#e6e6e6;
+
+}
+
+.orderDetail {
+    /*padding:12px;*/
+}
+
+.buttons {
+
+    position: relative;
+    left: -1.7em;
+    top: .3em;
+}
+
+
+.buttons button {
+    
+    margin-top:6px;
+    padding:0;
+    /*max-width:130%;
+    max-height:130%;*/
+}
+.orderInfo {
+    float:right;
+}
+.payNow{
+
+    background: url(../../../images/payNow.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 44px;
+    border: none;
+}
+
+.receiptFooterTopRight {
+    background: #363636;
+    padding: 20px;
+    float: right;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+    font-size: 16px;
+    height: 250px;
+    width: 35%;
+}
+
+    .receiptFooterTopRight span {
+        color: #B9B526;
+    }
+
+.receiptFooterTopLeft div {
+    float: right;
+    text-align: right;
+}
+
+.receiptFooterTopLeft {
+    padding-top: 25px;
+    float: left;
+    color: #851500;
+    font-size: 17px;
+    width: 60%;
+    font-weight: bold;
+}
+
+.receiptFooterBottom {
+    margin-top: 5px;
+}
+
+    .receiptFooterBottom button, .receiptFooterBottom .btn-default:active {
+        /*background: url(../../../images/btnPaid.fw.png);
+        background-size: 100%;*/
+        width: 100%;
+        
+        border: none;
+        font-size:20px;
+        margin-top: 10px;
+    }
+.disacount {
+    width:100%;
+}
+
+.checkbox {
+    display: inline;
+}
+
+.receiptFooterBottomRight {
+    font-size: 21px;
+    margin-top:20px;
+}
+
+    .receiptFooterBottomRight input[type="text"] {
+    }
+
+
+
+
+
+
+
+
+/*-------------menu---------------*/
+.menuSection {
+    padding-top: 5px;
+    text-align: center;
+}
+
+    .menuSection a {
+        color: white;
+        display: table-cell;
+        /*font-size: 13px;*/
+        font-size: 10px;
+        font-weight: bold;
+        height: 80px;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        width: 83px;
+        text-decoration: none;
+    }
+
+.menuButtons {
+    margin-bottom: 10px;
+    background: #70463a;
+    border-radius: 4px;
+    border: 1px solid #523127;
+}
+
+    .menuButtons:hover {
+        background: #8b5f53;
+    }
+
+.menuSection > .active {
+    background: none;
+    border: 2px solid #70463a;
+    box-shadow: inset 0 0 3px 2px #ccb1a9;
+}
+
+.active > a {
+    color: #70463a;
+}
+
+.menuSection div:first-child {
+    background: #1D9EC3;
+    border: 1px solid #007495;
+}
+
+.menuSection div:nth-child(6) {
+    background: linear-gradient(#BB371E,#7A1300);
+}
+
+.receiptFooterTopLeft button, .receiptFooterTopLeft .btn-default:active {
+    background: url(../../../images/printIcon.fw.png);
+    background-size: 100%;
+    width: 77px;
+    height: 77px;
+    border: none;
+}
+/*--------------------Dashboard Style------------------------*/
+#dashboardHeader {
+    height: 70px;
+    background: url(../../../images/header_line.gif) repeat-x bottom #2c3e52;
+    color: white;
+    position: relative;
+}
+
+#dashboardHeaderUser {
+    width: 300px;
+    height: 70px;
+    background: #2c3e52;
+    float: right;
+    padding: 7px 10px;
+}
+
+    #dashboardHeaderUser div:first-child {
+        float: left;
+    }
+
+#userInfo {
+    float: left;
+    font-size: 17px;
+    padding: 5px 10px;
+}
+
+    #userInfo span {
+        font-size: 11px;
+        color: #A1776B;
+    }
+
+#logoutBtn {
+    float: right;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.settingsSec {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+.settingsSec a {
+color:white;
+}
+
+    .settingsSec li {
+        float: left;
+        margin: 22px;
+        font-size: 12px;
+    }
+
+        .settingsSec li:first-child {
+            /*list-style: url(../../../images/iconHelp.fw.png);*/
+            list-style: none;
+        }
+
+        .settingsSec li:nth-child(2) {
+            /*list-style: url(../../../images/iconSetting.fw.png);*/
+            list-style: none;
+        }
+        .settingsSec li:nth-child(3) {
+            list-style: none;
+        }
+
+#dashboardLogo {
+    float: left;
+    position: relative;
+}
+
+    #dashboardLogo .voentlogo {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 90px;
+        height: 70px;
+        background: url(../../../images/logo.png);
+        cursor:pointer;
+    }
+
+    #dashboardLogo .machoText {
+        position: absolute;
+        left: 125px;
+        top: 9px;
+        width: 135px;
+        height: 49px;
+        background: url(../../../images/machoText.png);
+         cursor:pointer;
+    }
+
+#dashboardContents {
+    margin-top: 30px;
+    height: auto;
+}
+
+.breadcrumb {
+    background: none;
+    border-bottom: 1px solid #e8ded4;
+    margin-bottom: 10px;
+    padding-left: 125px;
+}
+
+.menu li {
+    float: left;
+    margin: 30px;
+    list-style: none;
+    width: 129px;
+    height: 129px;
+}
+
+    .menu li a {
+        color: #513127;
+        text-decoration: none;
+        border-radius: 10px;
+        float: left;
+        padding: 15px;
+        text-align: center;
+        list-style: none;
+        font-size: 20px;
+        border: 1px solid #E2D8D0;
+        width: 129px;
+        min-height: 129px;
+        background: linear-gradient(white, #EDE5D9);
+    }
+
+        .menu li a:hover {
+            background: #FFF;
+        }
+
+.menu span {
+    display: block;
+}
+
+.sideMenu {
+    width: 260px;
+    height: 282px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #bcb0ad;
+    float: right;
+    background: url(../../../images/sideMenu.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.sideMenuHeader {
+    width: 249px;
+    height: 44px;
+    background: #70463a;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    font-size: 19px;
+}
+
+.sideMenuTable table tr td {
+    padding: 10px;
+}
+
+.receiptFooterBottom .btn-default:hover {
+    background-color: #FFFCF5 !important;
+}
+
+.receiptFooterTopLeft .btn-default:hover {
+    background-color: #FFFCF5 !important;
+}
+
+.recepitSection .col-md-4 {
+    padding-right: 0;
+}
+
+.form1 .lable {
+    line-height: 2;
+}
+
+#btnAdd {
+    background-image: url(http://www.clker.com/cliparts/1/o/E/E/M/y/add-button-sepia-md.png);
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 49px;
+    background-repeat: no-repeat;
+}
+
+#formSection {
+    background-color: white;
+    padding: 27px;
+    border: 1px solid #680909;
+    margin: 10px;
+}
+/*------------Login Form style-----------------*/
+.logInSection {
+    background-color: white;
+    border: 1px solid #680909;
+    margin: 10px;
+    height: 250px;
+}
+
+.loginHeader {
+    background: linear-gradient(#A5604C, #70463a);
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logInSection form {
+    padding: 20px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.help-block {
+    color: #ff180a;
+    font-size: 12px;
+    margin-top: 3px;
+}
+/*
+   Kitchen screen custom css
+*/
+.timerSec {
+    height: 70px;
+    background: #565656;
+    color: white;
+    padding: 1px 0 1px 0;
+}
+
+.timer {
+    float: left;
+    height: 100%;
+    width: 60%;
+    line-height: 1;
+    color: #858585;
+    padding-top: 5px;
+    background: url(../../../images/timer.png);
+    background-repeat: no-repeat;
+    padding-left: 70px;
+}
+
+    .timer span {
+        font-size: 42px;
+        color: white;
+    }
+
+.status {
+    text-align: center;
+    padding-top: 20px;
+    background: #c7c26e;
+    float: left;
+    height: 100%;
+    width: 40%;
+    color: #3c3c3e;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.statusInProgress {
+    background: #c7c26e none repeat scroll 0 0;
+    color: #3c3c3e;
+    
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 12px;
+    padding-top: 21px;
+    text-align: center;
+    width: 40%;
+}
+
+    .status:hover {
+        background: #b7b037;
+        color: #FFF;
+    }
+
+.timerBottom {
+    background: #bab526;
+    color: #000;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.added {
+    background: limegreen;
+}
+
+.changed {
+    background: #46a5cf;
+}
+
+.timerBottom span {
+    color: white;
+}
+
+.kitchen .receiptCenter {
+    min-height: 540px !important;
+}
+
+.timerWrapper {
+    margin-bottom: 10px;
+}
+
+.timerBottom ul li {
+    font-size: 14px;
+    position: relative;
+    list-style: none;
+}
+
+.timerBottom .extras li:before {
+    content: "+";
+    font-size: 14px;
+    font-weight: bold;
+    left: -13px;
+    position: absolute;
+}
+
+.timerBottom .exclude li:before {
+    content: "-";
+    font-size: 14px;
+    font-weight: bold;
+    left: -12px;
+    position: absolute;
+}
+
+.timerBottom .dealitem li:before {
+    content: "*";
+    font-size: 14px;
+    font-weight: bold;
+    left: -12px;
+    position: absolute;
+}
+
+.ordersContainer {
+    height: 439px !important;
+}
+
+.order_item {
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.item_lists {
+    background-color: white;
+    padding: 2px;
+}
+
+ul[rn-carousel] {
+    margin-top: 25px;
+}
+
+.orderList li {
+    padding: 0 25px !important;
+}
+
+    .orderList li .col-md-4 {
+        padding: 0 8px !important;
+    }
+
+.orderList .rn-carousel-control {
+    background: #FFF;
+    border: 1px solid #acacac;
+    font-size: 40px;
+    padding: 0 8px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 #a6a6a6;
+    font-family: times new roman;
+    color: #7f7f7f;
+}
+
+.rn-carousel-control.rn-carousel-control-prev {
+    left: 0;
+}
+
+.rn-carousel-control.rn-carousel-control-next {
+    right: 3px;
+}
+
+.loginScreen {
+    margin: auto;
+    width: 400px;
+}
+
+    .loginScreen form {
+        background: #FFF;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        padding: 20px 30px;
+    }
+
+    .loginScreen h5 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .loginScreen h4 {
+        margin: 0;
+        color: #70463a;
+        margin: 10px 0 15px 0;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .loginScreen button {
+        background-color: #1d9ec3;
+        border: 1px solid #007495;
+        color: #FFF;
+        width: 100%;
+    }
+
+.padding-left130 {
+    padding-left: 131px;
+}
+/* Dashboard */
+.panel-heading {
+    border-bottom: 0px solid transparent;
+}
+
+.panel-primary > .panel-heading {
+    color: #70463a;
+    background-color: white;
+    border-color: black;
+    font-size: 20px;
+    font-family: Tahoma;
+}
+
+.panel-primary {
+    border-color: #e6e3dd;
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: white;
+    border-top: 0px solid #ddd;
+    font-size: 35px;
+    font-family: Myriad pro;
+    color: #000000;
+}
+
+.categoriesList span {
+    float: right;
+}
+
+.categoriesList li {
+    font-size: 16px;
+    list-style: none;
+    color: #000000;
+    padding: 8px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sectionFooter {
+    font-size: 18px;
+    height: 70px;
+}
+
+.blu_btn {
+    background-color: #1d9ec3;
+    border: 1px solid #007495;
+    color: #ffffff;
+}
+
+.gray_btn {
+    background-color: #6e6e6e;
+    border: 1px solid #4a4a4a;
+    color: #ffffff;
+}
+
+table thead .trBG {
+    background: #523127;
+    color: #FFF;
+}
+
+table tbody tr:hover {
+    background: #f7f7f7;
+}
+
+table tbody tr td {
+    vertical-align: middle !important;
+}
+
+.table > thead > tr > th {
+    vertical-align: middle !important;
+}
+
+.dropdown-menu {
+    min-width: 160px !important;
+    width: 260px;
+}
+
+.fa {
+    font-size: 17px;
+    color: #523127;
+}
+
+.bg_cream {
+    background: #fff6df;
+    border: 1px solid #eadaaf;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.margin_0 {
+    margin: 0 !important;
+}
+
+.marginBtm_20 {
+    margin-bottom: 20px !important;
+}
+.marginBtm_10{
+    margin-bottom: 10px !important;
+}
+.marginTop_20 {
+    margin-bottom: 20px !important;
+}
+.marginTop_10{
+    padding-top: 10px;!important;
+}
+.marginTop_15{
+    padding-top: 15px;!important;
+}
+.padding_0{
+    padding: 0px !important;
+}
+.padding_10{
+    padding: 10px !important;
+}
+.padding-top20{
+    padding-top: 20px;!important;
+}
+.padding-top_5{
+    padding-top: 5px;!important;
+}
+.padding-left_0{
+    padding-left: 0px;!important;
+}
+.padding-left_10{
+    padding-left: 10px !important;
+}
+.padding-right_0{
+    padding-right: 0px;!important;
+}
+
+.deleted {
+    background: red;
+    text-decoration: line-through;
+}
+
+.ul_inline {
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.ul_inline li {
+    display: inline;
+    float: left;
+    margin-right: 18px;
+    margin-bottom: 10px;
+}
+.privileges {
+        padding: 15px;
+}
+input {
+    margin-bottom:10px;
+}
+.star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  
+  .star {
+    padding: 1px;
+    color: #ddd;
+    font-size: 20px;
+    text-shadow: .05em .05em #aaa;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+
+    &.filled {
+      color: #fd0;
+    }
+  }
+
+  &.readonly .star.filled {
+    color: #666;
+  }
+
+

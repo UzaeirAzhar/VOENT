@@ -1,0 +1,115 @@
+﻿<style>
+
+</style>
+
+<div class="page-header"><h1>{{eventDetail.name}}</h1></div>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="inputStartDate" class="col-sm-2 control-label">Start Date And Time</label>
+        <div class="col-sm-10">
+            <input type="datetime-local" class="form-control" id="inputStartDate" ng-model="eventDetail.start_date" ng-disabled="true">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEndDate" class="col-sm-2 control-label">End Date and Time</label>
+        <div class="col-sm-10">
+            <input type="datetime-local" class="form-control" id="inputEndDate" ng-model="eventDetail.end_date" ng-disabled="eventDetail.role_name !== 'Organizer' || isEventExpired">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Voting</label>
+        <div class="col-sm-10">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Vote Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="option in eventOptions">
+                        <td>
+                            <input type="radio" name="votingoption" ng-model="optionValue" ng-click="getRadioOptionValue(option.id);" ng-value="option.id" ng-show="eventDetail.is_multi == 0" ng-disabled="isEventExpired" />
+                            <input type="checkbox" name="votingoption" ng-checked="option.isSelected" ng-model="option.isSelected" ng-show="eventDetail.is_multi == 1" ng-disabled="isEventExpired" />
+                        </td>
+                        <td>{{option.name}}</td>
+                        <td>{{option.place}}</td>
+                        <td>{{getFormattedDate(option.date)}}</td>
+                        <td>{{option.time}}</td>
+                        <td>{{option.option_count}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group" ng-show="eventDetail.role_name === 'Organizer'">
+        <label class="col-sm-2 control-label">Users</label>
+        <div class="col-sm-10">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Role</th>
+                        <th ng-show="eventDetail.role_name === 'Organizer'">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="eventUser in eventUsers" ng-show="eventUsers.length > 0">
+                        <td>
+                            <select class="form-control" name="ddUserName" ng-options="user.id as user.name for user in users" ng-model="eventUser.user_id" ng-disabled="isEventExpired">
+                                <option value=""> -- Select --</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control" name="ddRoles" ng-options="role.id as role.name for role in roles" ng-model="eventUser.role_id" ng-disabled="isEventExpired">
+                                <option value=""> -- Select --</option>
+                            </select>
+                        </td>
+                        <td ng-show="eventDetail.role_name === 'Organizer'">
+                            <a ng-show="!isEventExpired" href="javascript:void(0);" ng-click="addNewEventUser($index);">Add</a> /
+                            <a ng-show="!isEventExpired" href="javascript:void(0);" ng-click="deleteEventUser($index);">Delete</a>
+                        </td>
+                    </tr>
+                    <tr ng-show="eventUsers.length < 1">
+                        <td ng-show="eventDetail.role_name === 'Organizer'" colspan="3" align="center">
+                            <h2><a href="javascript:void(0);" ng-click="addNewEventUser($index);">Add User Role</a></h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 text-center">
+            <button type="submit" class="btn btn-primary" ng-disabled="isEventExpired" ng-click="saveEventUserAndVotingInformation();">Save</button>
+            <button type="submit" class="btn btn-default" ng-click="goBack();">Cancel</button>
+        </div>
+    </div>
+</form>
+
+<div class="container" ng-init="initChat();">
+    <div class="row">
+          <div class="col-md-8">
+            <div class="chat" id="chat" ng-repeat="_message in messages">
+                <li>{{_message}}</li>
+            </div>  
+
+            <form id="messageForm" ng-submit="sendMessage($event);" >
+                 <label>Enter Message</label>
+                 <input class="form-control" id="message" ng-model="chatMessage"></textarea>
+                 <br/>
+                 <input type="submit" class="btn btn-primary" value="Send Message">
+            </form>
+          </div>
+      </div>  
+    </div>
+</div>

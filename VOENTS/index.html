@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VOENTS</title>
+
+    <!---------------------- CSS ------------------------>
+    <link rel="stylesheet" href="NgApp/Common/css/bootstrap.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/font-awesome.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="NgApp/Common/css/angular-carousel.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/angular-chart.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/loading-bar.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/createOrder.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/customerInfo.css" />
+    <!--<link rel="stylesheet" href="css/angular-carousel.min.css">-->
+    <link rel="stylesheet" href="NgApp/Common/css/custom.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/style.css" />
+    <link rel="stylesheet" href="NgApp/Common/css/print.css" type="text/css" media="print" />
+    <!--<link rel="stylesheet" href="css/angular-wizard.css">-->
+    <!--<link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/libs.min.css">-->
+    <!--<link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/docs.min.css">-->
+    <!---------------------- Scripts ------------------------>
+    <script type="text/javascript" src="NgApp/Common/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/underscore-min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-wizard.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-strap.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-strap.tpl.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-touch.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-carousel.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/Chart.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/angular-chart.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/loading-bar.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/socket.io.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="NgApp/Common/Scripts/accordion.js"></script>
+    <script type="text/javascript" src="NgApp/AppRoutes/EventManagerRoutes.js"></script>
+    <script type="text/javascript" src="NgApp/AppRoutes/Underscore.js"></script>
+    <!---------------------- Controllers ------------------------>
+    <script type="text/javascript" src="NgApp/Login/Controllers/LoginController.js"></script>
+    <script type="text/javascript" src="NgApp/Event/Controllers/EventsController.js"></script>
+    <script type="text/javascript" src="NgApp/Event/Controllers/EventDetailController.js"></script>
+    <script type="text/javascript" src="NgApp/Event/Controllers/EventGraphController.js"></script>
+    <script type="text/javascript" src="NgApp/Event/Factory/services.js"></script>
+
+    <script type="text/javascript" src="NgApp/baseurl.js"></script>
+
+    <!---------------------- Services ------------------------>
+    <!--<script type="text/javascript" src="NgApp/Admin/Services/AdminMenuService.js"></script>-->
+    <!--<script type="text/javascript" src="dist/scripts/ngapp.js"></script>-->
+    <!--<script type="text/javascript" src="dist/scripts/app.min.js"></script>-->
+</head>
+<body ng-app="EventManagerModule">
+    <div ng-controller="LoginController">
+        <div class="container-fluid">
+            <header>
+                <div class="wrapper">
+                    <div class="row" id="dashboardHeader">
+                        <div id="dashboardHeaderLeft">
+							 <div class="voentlogo" id="dashboardLogo">
+                                <img src="images/logo.png" class="voentlogo" id="dashboardLogo"/>
+							 </div>
+						</div>
+						<div ng-show="isAuthenticated" ng-init="getUserInformation();" class="pull-right">
+                            <div id="dashboardHeaderRight">
+                                <div id="dashboardHeaderUser">
+                                    <div><img src="images/userIcon.fw.png" /></div>
+                                    <!--<div id="userInfo">
+                                        {{ userFullName }}<br />
+                                                          <span>Login as {{ objUser.name }}</span>
+                                    </div>-->
+                                    <div id="logoutBtn">
+                                        <a ng-click="logOut();"><img src="images/logoutImg.fw.png" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+            <div ng-view=ng-view>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
